@@ -1,0 +1,24 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="greenBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c853;" />
+      <stop offset="100%" style="stop-color:#2196f3;" />
+    </linearGradient>
+  </defs>
+
+  <!-- Centered logo group -->
+  <g transform="translate(150, 50)" text-anchor="middle" alignment-baseline="middle">
+    
+    <!-- Database icon -->
+    <g transform="translate(-65, -20)">
+      <ellipse cx="0" cy="0" rx="14" ry="7" fill="url(#greenBlue)" />
+      <rect x="-14" y="0" width="28" height="28" rx="5" fill="url(#greenBlue)" />
+      <ellipse cx="0" cy="28" rx="14" ry="7" fill="url(#greenBlue)" />
+    </g>
+
+    <!-- Text with reduced spacing -->
+    <text x="25" y="10" font-family="Segoe UI, sans-serif" font-size="28" fill="url(#greenBlue)" font-weight="600">
+      PushDB
+    </text>
+  </g>
+</svg>
