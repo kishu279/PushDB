@@ -30,6 +30,7 @@ const handler = NextAuth({
             where: { email: profile.email },
           });
 
+          // persist the user upon signing in
           if (!existingUser) {
             await prismaClient.user.create({
               data: {

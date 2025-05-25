@@ -10,15 +10,15 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="py-4 relative z-50 ">
-      <div className="container mx-auto px-4 fixed">
-        <div className="grid grid-cols-2 items-center p-3 px-6 border border-white/15 rounded-full bg-neutral-900/60 backdrop-blur-md">
+    <section className="py-4 z-50 inset-0 fixed ">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="grid grid-cols-2 items-center px-4 border border-white/15 rounded-full bg-neutral-900/60 backdrop-blur-md">
           <div>
             <Image
               src={logoImage}
               alt="logo"
               priority={true}
-              className="h-10 w-auto"
+              className="h-16 w-auto rounded-full"
             />
           </div>
           <div className="flex justify-end gap-3 items-center">

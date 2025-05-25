@@ -1,23 +1,32 @@
-<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+<svg width="200" height="100" viewBox="120 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="greenBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00c853;" />
-      <stop offset="100%" style="stop-color:#2196f3;" />
+    <!-- Sharper neon gradient -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4dff"/>
+      <stop offset="100%" stop-color="#7c4dff"/>
     </linearGradient>
+
+    <!-- Subtle glow -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#ff4dff" flood-opacity="0.4"/>
+    </filter>
   </defs>
 
-  <!-- Centered logo group -->
-  <g transform="translate(150, 50)" text-anchor="middle" alignment-baseline="middle">
-    
-    <!-- Database icon -->
-    <g transform="translate(-65, -20)">
-      <ellipse cx="0" cy="0" rx="14" ry="7" fill="url(#greenBlue)" />
-      <rect x="-14" y="0" width="28" height="28" rx="5" fill="url(#greenBlue)" />
-      <ellipse cx="0" cy="28" rx="14" ry="7" fill="url(#greenBlue)" />
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#121212" rx="10"/>
+
+  <!-- Logo group -->
+  <g transform="translate(160, 50)" text-anchor="middle" alignment-baseline="middle" filter="url(#neonGlow)">
+
+    <!-- Icon (tight circuit stack) -->
+    <g transform="translate(-60, -15)">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="url(#neonGradient)" />
+      <rect x="5" y="5" width="12" height="12" rx="2" fill="url(#neonGradient)" opacity="0.8"/>
+      <rect x="10" y="10" width="12" height="12" rx="2" fill="url(#neonGradient)" opacity="0.6"/>
     </g>
 
-    <!-- Text with reduced spacing -->
-    <text x="25" y="10" font-family="Segoe UI, sans-serif" font-size="28" fill="url(#greenBlue)" font-weight="600">
+    <!-- Text closer to icon -->
+    <text x="35" y="8" font-family="Orbitron, sans-serif" font-size="26" fill="url(#neonGradient)" font-weight="700" letter-spacing="1">
       PushDB
     </text>
   </g>
