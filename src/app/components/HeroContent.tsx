@@ -1,12 +1,7 @@
-"use client";
-
-import { useSession } from "next-auth/react";
 import StaggeredText from "./Staggered";
 import ProgressiveContent from "./ProgressiveContent";
 
 export default function Herocontent() {
-  const { data: session } = useSession();
-
   return (
     <section className=" mt-[100px]  ">
       <div className="text-4xl container max-w-5xl font-bold mx-auto place-items-center">

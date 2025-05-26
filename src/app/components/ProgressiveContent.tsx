@@ -1,14 +1,15 @@
 "use client";
 
-import { Section } from "lucide-react";
 import { useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import { accessedDynamicData } from "next/dist/server/app-render/dynamic-rendering";
 import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 export default function ProgressiveContent({ value }: { value: string }) {
   const scrollTarget = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: scrollTarget });
+  const { scrollYProgress } = useScroll({
+    target: scrollTarget,
+    offset: ["start end", "end end"],
+  });
 
   const words = value.split(" ");
 
@@ -30,7 +31,7 @@ export default function ProgressiveContent({ value }: { value: string }) {
       {/* Gradient background */}
 
       <div className="container max-w-5xl mx-auto px-4">
-        <div className="sticky top-20 md:top-28 lg:top-40">
+        <div className="sticky top-80 md:top-30 lg:top-40">
           <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-center mt-8 md:mt-10">
             <div className="mb-6 md:mb-8 lg:mb-10 pb-2">
               {words.map((word, wordIndex) => (
@@ -45,17 +46,17 @@ export default function ProgressiveContent({ value }: { value: string }) {
                 </span>
               ))}
             </div>
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent inline-block pb-4 px-2">
-              Experience the future of social streaming.
+            <div className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent inline-block pb-4 px-2">
+              The Helpful Environment to Grow.
             </div>
           </div>
         </div>
-        <div className="h-[150vh]" ref={scrollTarget}></div>
+        <div className="h-[150vh] " ref={scrollTarget}></div>
       </div>
 
       {/* Subtle gradient orbs in background */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-purple-500/5 blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-pink-500/5 blur-[100px] pointer-events-none"></div>
+      {/* <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-purple-500/5 blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-pink-500/5 blur-[100px] pointer-events-none"></div> */}
     </section>
   );
 }

@@ -37,7 +37,7 @@ export default function StaggeredText({
   return (
     <section className="container h-screen w-screen mx-auto">
       <div className="flex justify-center items-center top-16 h-full text-center">
-        <h1 className="text-6xl md:text-8xl uppercase font-extrabold leading-tight">
+        <h1 className="text-4xl md:text-7xl uppercase font-extrabold leading-tight">
           <Wrapper className={className}>
             <span className="sr-only">{text}</span>
             <motion.span
