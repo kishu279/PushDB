@@ -1,5 +1,9 @@
 import LandingPageComponent from "./pages/LandingPage";
 
 export default function Home() {
-  return <LandingPageComponent />;
+  return (
+    <section className="pb-[1000px]">
+      <LandingPageComponent />
+    </section>
+  );
 }

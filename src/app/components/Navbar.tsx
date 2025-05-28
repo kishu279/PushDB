@@ -10,9 +10,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="py-4 z-30 inset-0 fixed ">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid grid-cols-2 items-center px-4 border border-white/15 rounded-full bg-neutral-900/60 backdrop-blur-md">
+    <section className="py-4 z-10 inset-0 fixed h-fit">
+      <div className="container mx-auto px-4 max-w-6xl ">
+        <div className="grid grid-cols-2 items-center px-4 border border-white/15 rounded-full bg-neutral-900/60 backdrop-blur-md ">
           <div>
             <Image
               src={logoImage}
@@ -21,7 +21,7 @@ export default function Navbar() {
               className="h-16 w-auto rounded-full"
             />
           </div>
-          <div className="flex justify-end gap-3 items-center">
+          <div className="flex justify-end gap-3 items-center ">
             {/* Mobile toggle button */}
             <button
               onClick={() => setIsOpen(!isOpen)}

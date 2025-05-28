@@ -1,6 +1,5 @@
 "use client";
 
-import { table } from "console";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function GrabDataComponent() {
@@ -24,8 +23,12 @@ export default function GrabDataComponent() {
 
       // append the data
       formData.append("file", file);
+      formData.append("mongoDbUri", mongoDbUri);
+      formData.append("tableName", tableName);
+      formData.append("constraints", constraints);
 
       // submit this data to backend
+      
     } catch (err) {
       console.log(err);
     }
@@ -41,17 +44,16 @@ export default function GrabDataComponent() {
   }
 
   return (
-    <section className="h-screen flex items-center justify-center bg-neutral-900 ">
+    <section className="min-h-screen p-4 pt-[160px] w-fit place-self-center">
       <form
-        className="flex flex-col items-center justify-center gap-6 w-[400px] h-[700px] rounded-2xl bg-neutral-950 shadow-2xl"
         onSubmit={handleSubmit}
-        encType=""
+        className="w-full max-w-md bg-neutral-900 text-white p-8 rounded-2xl shadow-2xl space-y-6 h-fit "
       >
         <h2 className="text-2xl font-bold text-center">
           Upload JSON & Connect
         </h2>
 
-        <div className="">
+        <div>
           <label
             htmlFor="fileUpload"
             className="block mb-2 text-sm font-semibold"
@@ -63,9 +65,9 @@ export default function GrabDataComponent() {
             name="fileUpload"
             id="fileUpload"
             accept=".json"
-            className="cursor-pointer h-[100px] rounded-2xl w-[300px] bg-neutral-800 p-3"
             required
             onChange={handleFileChange}
+            className="w-full cursor-pointer rounded-lg bg-neutral-800 p-3"
           />
         </div>
 
@@ -106,10 +108,12 @@ export default function GrabDataComponent() {
           />
         </div>
 
-        <input
+        <button
           type="submit"
-          className="p-3 rounded-lg cursor-pointer bg-neutral-800 hover:bg-neutral-500 hover:text-neutral-90"
-        />
+          className="w-full py-3 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition"
+        >
+          Submit
+        </button>
       </form>
     </section>
   );
