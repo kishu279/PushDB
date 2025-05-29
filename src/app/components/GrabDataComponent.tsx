@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { toast } from "sonner";
 
 export default function GrabDataComponent() {
   const [file, setFile] = useState<File | null>(null);
@@ -33,7 +34,11 @@ export default function GrabDataComponent() {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      console.log(response);
+      if (response) {
+        toast("Success");
+      } else {
+        toast("Unsuccess");
+      }
     } catch (err) {
       console.log(err);
     }

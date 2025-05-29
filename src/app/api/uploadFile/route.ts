@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import mongoose, { Schema } from "mongoose";
-import { Edu_AU_VIC_WA_NT_Arrows } from "next/font/google";
-import { object } from "motion/react-client";
+import mongoose from "mongoose";
 
 export async function POST(req: NextRequest) {
   const formData: FormData = await req.formData();
@@ -19,11 +17,6 @@ export async function POST(req: NextRequest) {
     const mongoDbUri: string = formData.get("mongoDbUri") as string;
     const tableName: string = formData.get("tableName") as string;
     const constraints = formData.get("constraints") as string;
-
-    console.log("file: ", file);
-    console.log("mongoDbUri: ", mongoDbUri);
-    console.log("tableName: ", tableName);
-    console.log("constraints: ", constraints);
 
     // get the form data
     const fileBuffer = Buffer.from(await file.arrayBuffer());
@@ -58,7 +51,6 @@ export async function POST(req: NextRequest) {
     // send the data
     const result = await model.insertMany(fileData);
 
-    console.log(result);
     // disconnect
   } catch (err) {
     await mongoose.disconnect();
