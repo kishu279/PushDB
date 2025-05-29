@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function GrabDataComponent() {
@@ -8,7 +9,7 @@ export default function GrabDataComponent() {
   const [tableName, setTableName] = useState("");
   const [constraints, setConstraints] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     // create the form data and then append the required details
@@ -28,7 +29,11 @@ export default function GrabDataComponent() {
       formData.append("constraints", constraints);
 
       // submit this data to backend
-      
+      const response = await axios.post("/api/uploadFile", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
