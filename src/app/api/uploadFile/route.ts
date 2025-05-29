@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
       console.log("connection successfull");
     });
 
+    let schema;
     // get the shcema
     if (typeof constraints === "string") {
       const parsedOnce = JSON.parse(constraints);
@@ -43,16 +44,16 @@ export async function POST(req: NextRequest) {
 
       // console.log("Parsed twice: ", parsedTwice);
 
-      var Schema = new mongoose.Schema(parsedTwice);
+      schema = new mongoose.Schema(parsedTwice);
     }
 
-    if (!Schema) {
+    if (!schema) {
       console.error("Schema not found");
       throw new Error("Schema not found");
     }
 
     const model =
-      mongoose.models[tableName] || mongoose.model(tableName, Schema);
+      mongoose.models[tableName] || mongoose.model(tableName, schema);
 
     // send the data
     const result = await model.insertMany(fileData);
