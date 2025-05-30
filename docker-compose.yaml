@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres
+    container_name: my_postgres_database
+    env_file:
+      - path: .env
+        required: true
+    environment:
+      POSTGRES_DB: auth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: prisma
+    ports:
+      - "5432:5432"
+    networks:
+      - my_custom_network
+    volumes:
+      - volume_databases:/data/db
+
+  frontend:
+    build: .
+    container_name: push_db
+    ports:
+      - "3000:3000"
+    networks:
+      - my_custom_network
+    volumes:
+      - ./:/app
+      - /node_modules
+    depends_on:
+      - db
+
+networks:
+  my_custom_network:
+    driver: bridge
+
+volumes:
+  volume_databases:
